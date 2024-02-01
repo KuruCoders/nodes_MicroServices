@@ -75,6 +75,19 @@ class ProductService {
         }
     }
      
+    //productPayloadGenerato
+    async GetProductPayLoad(userId,{productId,qty},event) {
+        const product = await this.repository.FindById(productId)
+        if (product) {
+            const payload = {
+                event: event,
+                data:{userId,product,qty}
+            }
+            return FormateData(payload)
+        } else {
+            return FormateData({ error:'No Product Available'})
+        }
+    }
 }
 
 module.exports = ProductService;
