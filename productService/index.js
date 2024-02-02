@@ -4,7 +4,7 @@ app.use(express.json())
 
 app.use('/', (req, res, next) => {
     return res.json({
-        'msg':'on product service'
+        'msg':'gateway online'
     })
 })
 app.listen(8002, () => {
